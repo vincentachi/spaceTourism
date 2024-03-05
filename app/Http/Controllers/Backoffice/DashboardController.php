@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Backoffice;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Users;
 
 class DashboardController extends Controller
 {
@@ -15,4 +15,8 @@ class DashboardController extends Controller
         return view('backoffice.dashboard');
     }
 
+    // public function tablesview()
+    // {
+    //     return view()
+    // }
 }

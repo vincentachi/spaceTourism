@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'toto',
             'email' => 'toto@mail.com',
-            'password' => 'Toto123+',
+            'password' =>  bcrypt('Toto123+'),
         ]);
     }
 }

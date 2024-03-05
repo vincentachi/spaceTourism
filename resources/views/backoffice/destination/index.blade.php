@@ -12,6 +12,7 @@
         <h1>Liste des Destinations</h1>
         <!-- Bouton "Ajouter" -->
         <a href="{{ route('backoffice.destination.create') }}" class="btn btn-success mb-3">Ajouter</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-warning mb-3">Retour au menu des tables</a>
         
         <table class="table">
             <thead>

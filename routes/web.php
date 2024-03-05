@@ -48,7 +48,20 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route du backOffice
 
-//Route bakcoffice destination
+
+
+
+//Route du dashboard
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/backoffice/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::post('/logout', function () {
+        Auth::logout();
+        return redirect('/login'); // Redirige l'utilisateur vers la page de connexion après la déconnexion
+    })->name('logout');
+
+    //Route bakcoffice destination
 
 Route::get('/backoffice/destination', [DestinationController::class, 'index'])->name('backoffice.destination.index');
 Route::get('/backoffice/destination/create', [DestinationController::class, 'create'])->name('backoffice.destination.create');
@@ -81,20 +94,8 @@ Route::put('/backoffice/technology/update/{id}', [TechnologyController::class, '
 Route::get('/backoffice/technology/delete/{id}', [TechnologyController::class, 'delete'])->name('backoffice.technology.delete');
 Route::delete('/backoffice/technology/destroy/{id}', [TechnologyController::class, 'destroy'])->name('backoffice.technology.destroy');
 
-
-//Route du dashboard
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/backoffice/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 });
 
-//Route pour la vue tablesview.blade.php
-Route::middleware(['auth', 'dashboard'])->group(function () {
-    Route::get('/backoffice/dashboard/tables', function () {
-        return view('dashboard.tablesview');
-    })->name('dashboard.tablesview');
-}); 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -103,4 +104,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-;  

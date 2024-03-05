@@ -86,7 +86,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-warning">Appliquer</button>
+            <button type="submit" class="btn btn-success">Appliquer</button>
         </form>
     </div>
 

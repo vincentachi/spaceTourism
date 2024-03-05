@@ -25,7 +25,7 @@
         <form action="{{ route('backoffice.technologies.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="name_fr" class="form-label">Nomv (Fr)</label>
+                <label for="name_fr" class="form-label">Nom (Fr)</label>
                 <input type="text" name="name_fr" id="name_fr" class="form-control" placeholder="Name_fr" value="{{ old('name_fr','') }}">
                 @error('name_fr')
                     <span>{{ $message }}</span>
@@ -59,7 +59,8 @@
                     <span>{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Créer une nouvelle technologie</button>           
+            <button type="submit" class="btn btn-success">Créer une nouvelle destination</button>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary">Retour</a>           
         </form>
     </div>
 

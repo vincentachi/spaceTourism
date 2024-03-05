@@ -67,7 +67,8 @@
                     <span>{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Créer une nouveau membre d'équipage</button>           
+            <button type="submit" class="btn btn-success">Créer une nouvelle destination</button>
+            <a href="{{ route('dashboard') }}"class="btn btn-primary">Retour</a>           
         </form>
     </div>
 
