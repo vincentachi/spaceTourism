@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             DestinationsTableSeeder::class,
             CrewsTableSeeder::class,
             TechnologyTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }

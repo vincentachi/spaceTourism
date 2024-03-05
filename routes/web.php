@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LangController;
-// use App\Http\Controllers\Backoffice\DashboardController;
+use App\Http\Controllers\Backoffice\DashboardController;
 use App\Http\Controllers\Backoffice\DestinationController;
 use App\Http\Controllers\Backoffice\CrewController;
 use App\Http\Controllers\Backoffice\TechnologyController;
@@ -81,11 +81,20 @@ Route::put('/backoffice/technology/update/{id}', [TechnologyController::class, '
 Route::get('/backoffice/technology/delete/{id}', [TechnologyController::class, 'delete'])->name('backoffice.technology.delete');
 Route::delete('/backoffice/technology/destroy/{id}', [TechnologyController::class, 'destroy'])->name('backoffice.technology.destroy');
 
+
+//Route du dashboard
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/backoffice/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 });
 
+//Route pour la vue tablesview.blade.php
+Route::middleware(['auth', 'dashboard'])->group(function () {
+    Route::get('/backoffice/dashboard/tables', function () {
+        return view('dashboard.tablesview');
+    })->name('dashboard.tablesview');
+}); 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
